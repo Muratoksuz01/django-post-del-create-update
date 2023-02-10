@@ -1,0 +1,18 @@
+{% load static%}
+<div class="row g-0" style="padding-top:15px;" >
+    <div class="col-md-4">
+    <img src="{% static 'img/1.jpeg' %}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content|linebreaks|truncatechars:150}}</p>{#linebreaks bu formm da bosluk bıraktıgında bu boslukları gösteritor yanı enter tusunu gösteriyor truncatechars ise ilk 150 karakteri gösteriyor#}
+        <p class="card-text"><small class="text-muted"> {{post.publishing_date|timesince}}</small></p>{#timesince adı ustunde ...da önce  gibi gösteriyor #}
+        <div class="btn-group">
+        <a href="{{post.get_absolute_url}}" class="btn btn-primary">İncele</a>
+        <a href="{{post.get_update_url}}" class="btn btn-defauld">Güncelle</a>
+        <a href="{{post.get_delete_url}}" class="btn btn-danger">Sil</a>
+    </div>
+    </div>
+    </div>
+</div>

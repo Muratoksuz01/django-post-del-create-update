@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%block body%}
+ 
+
+<div class="card mb-3" style="max-width: 540px;margin: 0 auto;">
+
+    {% for post in posts%}
+     
+        {% include 'post/card.html' %}
+
+    {%endfor%}
+</div>
+    
+{% endblock %}
