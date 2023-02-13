@@ -5,9 +5,9 @@ from django.http import HttpResponse
 #     return render(request,'home.html',{})
 
 def Home_page(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         context = {
-            'isim': 'Barış'
+            'isim': 'Murat'
         }
     else:
         context = {

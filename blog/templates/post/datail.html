@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {%block body%}
    {% include 'post/card.html' %}
-
+   <br><hr>
+   <h3>Yorum ekle</h3>
+   {% include 'post/comment.html' %}
+      <br><hr>
+   {%for comment in post.comments.all%}{#burası calışmıyor en asagıda yorumlar görünmeli#}
+      <h4>{{comment.name}} <small> {{comment.created_date|timesince}} önce</small></h4>
+      <p>{{comment.content|linebreaks}}</p>
+      <hr>
+   {% endfor %}
 
 {% endblock %}
