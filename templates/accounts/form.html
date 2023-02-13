@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="cal-md-6 cal-md-offset-3">
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <h1>{{title}}</h1>
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="{{title}}">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

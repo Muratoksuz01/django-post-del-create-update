@@ -1,0 +1,32 @@
+{% load static%}
+
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        {% if post.image%}
+        <img src="{{post.image.url}}" class="img-responsive"style="width: 100%;" alt="...">
+        {% endif %}
+    </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <h4>Yazar: {{post.user.get_full_name}}</h4>
+          <p class="card-text">{{post.content|safe|linebreaks|truncatechars:150}}</p>{#linebreaks bu formm da bosluk bıraktıgında bu boslukları gösteritor yanı enter tusunu gösteriyor truncatechars ise ilk 150 karakteri gösteriyor baskatı safe ise htmlyi yorumlanmasını saglar ckeditor ile kullanıyoruz genellikle#} 
+          <p class="card-text"><small class="text-muted"> {{post.publishing_date}}</small></p>{#timesince adı ustunde ...da önce  gibi gösteriyor #}
+          <div class="btn-group">
+            <a href="{{post.get_absolute_url}}" class="btn btn-primary">İncele</a>
+            {% if request.user.is_authenticated %}
+            <a href="{{post.get_update_url}}" class="btn btn-defauld">Güncelle</a>
+            <a href="{{post.get_delete_url}}" class="btn btn-danger">Sil</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
